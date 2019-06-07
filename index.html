@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hamilton</title>
+</head>
+<body>
+  <h1 onmousemove="doSomething(event)">Alexander Hamilton</h1>
+  <p class="colorized" onclick="somethingElse()">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
+
+  <p>X coordinate: <span class="x-coordinate">TBD</span></p>
+  <p>Y coordinate: <span class="y-coordinate">TBD</span></p>
+
+  <script>
+    function doSomething(event) {
+      var x = event.clientX;
+      var y = event.clientY;
+      console.log(x, y);
+
+      var xElement = document.querySelector(".x-coordinate");
+      var yElement = document.querySelector(".y-coordinate");
+
+      xElement.innerHTML = x;
+      yElement.innerHTML = y;
+    }
+
+    function somethingElse() {
+      var colorizedElement = document.querySelector(".colorized");
+      var characters = "0123456789ABCDEF";
+      var color = "#";
+
+      for(var i = 0; i < 6; i++) {
+        color += characters[Math.floor(Math.random() * characters.length)];
+      }
+      
+      console.log(color);
+      colorizedElement.style.color = color;
+    }
+  </script>
+</body>
+</html>
